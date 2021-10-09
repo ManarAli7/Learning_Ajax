@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button data-page="demo-one.html">Get Demo One</button>
+    <button data-page="demo-two.html">Get Demo two</button>
+    <div id="show"></div>
+    <script src="jquery-3.6.0.min.js"></script>
+    <script>
+        //Ajax with jQuery
+
+        /*$(function() {
+            $('#show').load('text.txt', function(responstxt, statusTxt, xhr) {
+                console.log(responstxt);
+                console.log(statusTxt);
+                console.log(xhr);
+                if (statusTxt === "success") {
+                    console.log("Data Loaded");
+                }
+            });
+        });*/
+
+        $(function() {
+            $('button').on('click', function() {
+                $('#show').load($(this).data("page"), function(responstxt, statusTxt, xhr) {
+                    if (statusTxt === "success") {
+                        console.log("Data Loaded");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
